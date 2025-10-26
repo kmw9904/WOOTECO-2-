@@ -1,5 +1,6 @@
-import { Console, Random } from "@woowacourse/mission-utils";
+import { Console } from "@woowacourse/mission-utils";
 import hasValidCarNameLength from "./hasValidCarNameLength.js";
+import moveForward from "./moveForward.js";
 
 class App {
   async run() {
@@ -20,23 +21,9 @@ class App {
 
     const tryCount = +tryCountInput;
 
-    const raceProgress = Array.from({ length: carNamesList.length }, () => []);
-    
-    for (let count = 0; count < tryCount; count++) {
-      for (let name_idx = 0; name_idx < carNamesList.length; name_idx++) {
-        if (Random.pickNumberInRange(0, 9) >= 4) {
-          raceProgress[name_idx].push("-");
-        }
-      }
+    const winners = moveForward(carNamesList, tryCount);
 
-      const roundRaceResult = [];
-      for (let i = 0; i < carNamesList.length; i++) {
-        roundRaceResult.push(carNamesList[i] + " : " + raceProgress[i]);
-      }
-      Console.print(`실행 결과\n${roundRaceResult.join("\n")}`);
-    }
-
-    Console.print("최종 우승지 : name1, name2");
+    Console.print(`최종 우승자 : ${winners.join(", ")}`);
   }
 }
 
