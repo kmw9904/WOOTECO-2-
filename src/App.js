@@ -1,6 +1,6 @@
 import { Console } from "@woowacourse/mission-utils";
-import hasValidCarNameLength from "./hasValidCarNameLength.js";
-import moveForward from "./moveForward.js";
+import hasValidCarNameLength from "./validators/hasValidCarNameLength.js";
+import moveForward from "./race/moveForward.js";
 
 class App {
   async run() {

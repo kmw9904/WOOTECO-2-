@@ -1,9 +1,11 @@
-const hasValidCarNameLength = require("../hasValidCarNameLength");
+const hasValidCarNameLength = require("../validators/hasValidCarNameLength");
 
-test("차량 이름 글자 수 예외테스트", () => {
-  expect(() => hasValidCarNameLength(["pretty", "bts"]).toThrow("[ERROR]"));
-});
+describe("hasValidCarNameLength", () => {
+  test("차량 이름 글자 수 예외테스트", () => {
+    expect(() => hasValidCarNameLength(["pretty", "bts"]).toThrow("[ERROR]"));
+  });
 
-test("차량 이름 글자 수 성공테스트", () => {
-  expect(() => hasValidCarNameLength(["prety", "bts"].toThrow()));
+  test("차량 이름 글자 수 성공테스트", () => {
+    expect(() => hasValidCarNameLength(["prety", "bts"].toThrow()));
+  });
 });
