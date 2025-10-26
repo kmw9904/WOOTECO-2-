@@ -21,7 +21,7 @@ class App {
 
     const tryCount = +tryCountInput;
 
-    const winners = moveForward(carNamesList, tryCount);
+    const winners = await moveForward(carNamesList, tryCount);
 
     Console.print(`최종 우승자 : ${winners.join(", ")}`);
   }

@@ -1,9 +1,9 @@
 import { Random, Console } from "@woowacourse/mission-utils";
-import getWinners from "./getWinners";
-import playRound from "./playRound";
-import renderRound from "./renderRound";
+import getWinners from "./getWinners.js";
+import playRound from "./playRound.js";
+import renderRound from "./renderRound.js";
 
-export default function moveForward(
+export default async function moveForward(
   carNamesList,
   tryCount,
   rng = Random.pickNumberInRange
@@ -14,6 +14,8 @@ export default function moveForward(
   for (let round = 0; round < tryCount; round++) {
     playRound(raceProgress, rng);
     Console.print(`${renderRound(carNamesList, raceProgress)}\n`);
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
 
   return getWinners(carNamesList, raceProgress);

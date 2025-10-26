@@ -1,4 +1,4 @@
-import shouldAdvance from "./shouldAdvance";
+import shouldAdvance from "./shouldAdvance.js";
 
 export default function playRound(
   raceProgress,
